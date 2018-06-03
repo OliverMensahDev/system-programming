@@ -1,0 +1,67 @@
+public class Factory
+{
+  interface Phones()
+  {
+    void getScreenSize();
+  }
+  
+  class Android implements Phone{
+    @Override
+    public void getScreenSize(){
+      System.out.println("300 x 400");
+    }
+  }
+    
+    class Apple implements Phone
+    {
+      @Override
+      public void getScreenSize(){
+          System.out.println("500 x 300");
+      }
+    }
+    
+    class MobileFactory()
+    {
+      public Mobile getMobile(String mobileType)
+      {
+        if(mobileType == null)
+        {
+          return null;
+        }
+        if(mobileType.equalsIgnoreCase("Android"))
+        {
+          return new Android();
+        }
+        else if(mobileType.equalsIgnoreCase("Apple"))
+        {
+          return new Apple();
+        }
+        else
+        {
+          return null;
+        }
+      }
+    }
+    public static void main(String [] args)
+    {
+      Factory factory  = new Factory();
+      MobileFactory mobile = new MobileFactory();
+      
+      Mobile android = factory.mobile.getMobile("Android");
+      android.getScreenSize();
+      
+       Mobile apple = factory.mobile.getMobile("Apple");
+       apple.getScreenSize();
+    }
+}
+      
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
